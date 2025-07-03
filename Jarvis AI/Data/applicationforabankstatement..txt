@@ -1,0 +1,40 @@
+Here's a sample application for a bank statement:
+
+[Your Name]
+[Your Address]
+[City, State, PIN]
+[Date]
+
+[Bank Name]
+[Bank Address]
+[City, State, PIN]
+
+Subject: Request for Bank Statement
+
+Dear Sir/Madam,
+
+I am writing to request a copy of my bank statement for my account [Account Number] held at your bank. I require the statement for the period from [start date] to [end date] to reconcile my accounts and for personal record-keeping purposes.
+
+My account details are as follows:
+
+* Account Number: [Account Number]
+* Account Holder's Name: [Your Name]
+* Account Type: [Savings/Current]
+
+I would appreciate it if you could provide me with a detailed statement, including all transactions, deposits, and withdrawals made during the specified period. If possible, I would like to receive the statement in [physical or digital format, e.g., email or post].
+
+Please find below my identification details for verification purposes:
+
+* Account Holder's Signature: _____________________________
+* ID Proof: [Attach a copy of your ID proof, e.g., PAN card, passport, or driver's license]
+
+I would be grateful if you could expedite my request and provide me with the bank statement at the earliest. If there are any charges applicable for providing the statement, please let me know in advance.
+
+Thank you for your assistance and cooperation.
+
+Sincerely,
+
+[Your Signature]
+[Your Name]
+
+Note: You can modify this template to fit your specific needs and requirements. Remember to include your account details, identification, and signature to verify your request.

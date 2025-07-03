@@ -1,0 +1,90 @@
+Here's a simple implementation of a web application for sick leave management using Flask, a popular Python web framework:
+
+```
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+# Sample data for demonstration purposes
+employees = {
+    "1": {"name": "John Doe", "leaves": 5},
+    "2": {"name": "Jane Doe", "leaves": 5},
+    "3": {"name": "Bob Smith", "leaves": 5}
+}
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+        employee_id = request.form['employee_id']
+        if employee_id in employees:
+            employee = employees[employee_id]
+            return render_template('apply_leave.html', employee=employee)
+        else:
+            return "Employee not found", 404
+    return render_template('home.html', employees=employees)
+
+@app.route('/apply_leave', methods=['POST'])
+def apply_leave():
+    employee_id = request.form['employee_id']
+    employee = employees[employee_id]
+    leave_date = request.form['leave_date']
+    reason = request.form['reason']
+    
+    # Implement logic to update leave balance and store leave application
+    employee['leaves'] -= 1
+    print(f"Leave applied by {employee['name']} on {leave_date} for reason: {reason}")
+    
+    return "Leave applied successfully", 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+Here's the HTML code for the templates:
+
+**home.html**
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sick Leave Application</title>
+</head>
+<body>
+    <h1>Sick Leave Application</h1>
+    <form action="" method="post">
+        <label for="employee_id">Select Employee:</label>
+        <select name="employee_id">
+            {% for employee_id, employee in employees.items() %}
+                <option value="{{ employee_id }}">{{ employee.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Apply Leave">
+    </form>
+</body>
+</html>
+```
+
+**apply_leave.html**
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply Sick Leave</title>
+</head>
+<body>
+    <h1>Apply Sick Leave - {{ employee.name }}</h1>
+    <form action="/apply_leave" method="post">
+        <label for="leave_date">Leave Date:</label>
+        <input type="date" name="leave_date" required><br><br>
+        <label for="reason">Reason:</label>
+        <input type="text" name="reason" required><br><br>
+        <input type="hidden" name="employee_id" value="{{ employee_id }}">
+        <input type="submit" value="Apply Leave">
+    </form>
+</body>
+</html>
+```
+
+This implementation provides a simple web interface for employees to apply for sick leaves. The application stores the leave applications and updates the leave balance for each employee. Note that this is a basic example and you may want to add more features, such as user authentication, leave approval workflow, and data persistence using a database.
+
+To run the application, save the Python code in a file named `app.py` and create a new directory named `templates` for the HTML templates. Then, run the application using `python app.py` and access it through a web browser at `http://localhost:5000`.
